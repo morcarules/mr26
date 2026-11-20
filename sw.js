@@ -1,7 +1,7 @@
 // Morcar Rules — salva l'app per l'uso senza rete.
 // La pagina viene presa sempre fresca dalla rete quando c'è (così gli aggiornamenti arrivano subito);
 // senza rete si usa la copia salvata. Cambiare VERSIONE a ogni aggiornamento.
-const VERSIONE = "morcar-v18";
+const VERSIONE = "morcar-v30";
 const FILE = ["./", "./index.html", "./manifest.json", "./icon-180.png", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(VERSIONE)
