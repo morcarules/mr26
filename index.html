@@ -456,6 +456,8 @@ sealEl.addEventListener("click",()=>{ audio(); firstTouch(); if(busy) return; if
 /* ===== SUONI (generati, nessun file audio) ===== */
 let AC=null;
 function audio(){
+  // iPhone (iOS 17+): suona anche con l'interruttore del silenzioso, come un'app musicale
+  try{ if(navigator.audioSession) navigator.audioSession.type="playback"; }catch(e){}
   if(!AC){ const C=window.AudioContext||window.webkitAudioContext; if(!C) return null; AC=new C();
     const b=AC.createBuffer(1,1,22050), s=AC.createBufferSource(); s.buffer=b; s.connect(AC.destination); s.start(0); }
   if(AC.state==="suspended") AC.resume();
